@@ -1,0 +1,764 @@
+ /* General Reset */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:  #ec5938;
+    color: #333;
+    font-size: 18px; /* Match font size with Contact page */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between; /* Ensures space between logo and nav */
+    align-items: center; /* Vertically aligns logo and nav */
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    color: white;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem; /* Space between links */
+    margin-left: auto; /* Push navbar to the far right */
+}
+
+header .logo img {
+    max-width: 50px; /* Adjusted logo size */
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-left: auto; /* Align navbar to the right */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #FFC300;
+}
+
+/* Hero Section */
+.hero {
+    height: 50vh; /* Reduced height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('images/moon.jpg') no-repeat center center/cover;
+}
+
+.hero-content {
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem; /* Adjusted font size */
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content .button-group a {
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.btn-primary {
+    background: #FF5733;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #FFC300;
+}
+
+.btn-secondary {
+    background: #FFC300;
+    color: black;
+}
+
+.btn-secondary:hover {
+    background: #FF5733;
+    color: black;
+}
+
+/* Highlights Section */
+.highlights {
+    padding: 2rem;
+    text-align: center;
+    background: white;
+}
+
+.highlights-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.highlight {
+    width: 300px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.highlight img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+    justify-items: center;
+}
+
+.gallery-grid img {
+    width: 100%;
+    max-width: 120px; /* Reduced max width for smaller frames */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 10px; /* Add spacing between images */
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.1); /* Slightly enlarge the image */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* About Page Styles */
+.museum-about p {
+    font-size: 18px;
+    color: black; /* Set text color to black */
+    margin-bottom: 30px; /* Increased space for better readability */
+}
+
+/* About Page Styles */
+.museum-image {
+    width: 100%;
+    max-width: 500px; /* Reduced size for About page image */
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.overlay h1 {
+    font-size: 36px; /* Match Contact page heading size */
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 18px; /* Match Contact page font size */
+    color: black; /* Set text color to black */
+    margin-bottom: 20px;
+}
+
+/* Contact Page Styles */
+.contact {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contact h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    font-size: 18px;
+    color: #000; /* Updated to the requested color */
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    font-size: 16px;
+    color: #ddd;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background-color: #ffe600;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #ffd500;
+}
+
+.contact-image img {
+    width: 33%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+
+    /* Frame Styling */
+    border: 5px solid #333; /* Adjust thickness and color of the frame */
+    padding: 10px; /* Optional padding inside the border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for added depth */
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:  #ec5938;
+    color: #333;
+    font-size: 18px; /* Match font size with Contact page */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between; /* Ensures space between logo and nav */
+    align-items: center; /* Vertically aligns logo and nav */
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    color: white;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem; /* Space between links */
+    margin-left: auto; /* Push navbar to the far right */
+}
+
+header .logo img {
+    max-width: 50px; /* Adjusted logo size */
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-left: auto; /* Align navbar to the right */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #FFC300;
+}
+
+/* Hero Section */
+.hero {
+    height: 50vh; /* Reduced height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('images/moon.jpg') no-repeat center center/cover;
+}
+
+.hero-content {
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem; /* Adjusted font size */
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content .button-group a {
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.btn-primary {
+    background: #FF5733;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #FFC300;
+}
+
+.btn-secondary {
+    background: #FFC300;
+    color: black;
+}
+
+.btn-secondary:hover {
+    background: #FF5733;
+    color: black;
+}
+
+/* Highlights Section */
+.highlights {
+    padding: 2rem;
+    text-align: center;
+    background: white;
+}
+
+.highlights-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.highlight {
+    width: 300px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.highlight img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+    justify-items: center;
+}
+
+.gallery-grid img {
+    width: 100%;
+    max-width: 120px; /* Reduced max width for smaller frames */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 10px; /* Add spacing between images */
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.1); /* Slightly enlarge the image */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* About Page Styles */
+.museum-about p {
+    font-size: 18px;
+    color: black; /* Set text color to black */
+    margin-bottom: 30px; /* Increased space for better readability */
+}
+
+/* About Page Styles */
+.museum-image {
+    width: 100%;
+    max-width: 400px; /* Reduced size for About page image */
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.overlay h1 {
+    font-size: 36px; /* Match Contact page heading size */
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 18px; /* Match Contact page font size */
+    color: black; /* Set text color to black */
+    margin-bottom: 20px;
+}
+
+/* Contact Page Styles */
+.contact {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contact h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    font-size: 18px;
+    color: #000; /* Updated to the requested color */
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    font-size: 16px;
+    color: #ddd;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background-color: #ffe600;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #ffd500;
+}
+
+.contact-image img {
+    width: 33%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Exhibits Page Styles */
+.exhibits {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.exhibit {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.exhibit img {
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.exhibit h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.exhibit p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Visit Page Styles */
+.visit-intro {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #ec5938;
+}
+
+.visit-intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.visit-intro p {
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.visit-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: white;
+}
+
+.visit-image {
+    flex: 1 1 40%;
+    max-width: 500px;
+}
+
+.visit-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.visit-details {
+    flex: 1 1 50%;
+    max-width: 600px;
+}
+
+.visit-details h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ec5938;
+}
+
+.visit-details h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    color: #333;
+}
+
+.visit-details p, .visit-details ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.visit-details ul {
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.visit-details p strong {
+    color: #333;
+}
+/* Event Page Styles */
+.events-hero {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.events-hero h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.events-hero img.event-image {
+    max-width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event-details {
+    margin: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-details h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.event-details article {
+    margin-bottom: 2rem;
+}
+
+.event-details h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.event-details p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Calendar Section */
+.calendar-section {
+    margin: 2rem;
+    text-align: center;
+}
+
+.calendar-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.calendar {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.calendar th, .calendar td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.calendar th {
+    background-color: #333;
+    color: white;
+}
+
+.calendar td {
+    background-color: #fff;
+}
+
+.calendar td:hover {
+    background-color: #ffc300;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    
+/* Footer Styles */
+.footer-content {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 2rem; /* Increased padding for consistent spacing */
+}
+
+.footer-content ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Add spacing between list items */
+    padding: 0; /* Remove default padding */
+    margin: 1rem 0; /* Add vertical spacing */
+}
+
+.footer-content ul li {
+    margin: 0; /* Ensure consistent margin */
+}
+
+.footer-content ul a {
+    color: white; /* Consistent link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease;
+}
+
+.footer-content ul a:hover {
+    color: #FFC300; /* Hover effect for links */
+}
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero {
+        height: 30vh;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+}

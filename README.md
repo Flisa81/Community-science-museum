@@ -16,7 +16,7 @@ A fictional science museum website designed for kids and families. Built as a mu
 - CSS (Vanilla)
 
 ## 🖼️ Preview
-![Museum Screenshot](./images/museum.jpg)
+
 
 ## 🚀 How to Run Locally
 Clone the repository and open `index.html` in your browser. No server needed.

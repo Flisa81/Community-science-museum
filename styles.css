@@ -1,764 +1,360 @@
- /* General Reset */
- * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+:root {
+    --color-primary: #e84f2d;
+    --color-primary-dark: #b93418;
+    --color-dark: #222222;
+    --color-text: #222222;
+    --color-muted: #555555;
+    --color-light: #ffffff;
+    --color-soft: #fff6f2;
+    --color-accent: #ffc400;
+    --shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    --radius: 18px;
+    --max-width: 1120px;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color:  #ec5938;
-    color: #333;
-    font-size: 18px; /* Match font size with Contact page */
-    line-height: 1.6;
+    background: var(--color-soft);
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.65;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
-main {
-    flex: 1;
-}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+main { flex: 1; }
 
-/* Header Styles */
-header {
+.skip-link {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    transform: translateY(-160%);
+    background: var(--color-accent);
+    color: #111;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    z-index: 10;
+}
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
     display: flex;
-    justify-content: space-between; /* Ensures space between logo and nav */
-    align-items: center; /* Vertically aligns logo and nav */
-    background-color: #333;
-    padding: 0.5rem 1rem;
-    color: white;
-}
-
-header .logo {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-}
-
-header .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 1rem; /* Space between links */
-    margin-left: auto; /* Push navbar to the far right */
-}
-
-header .logo img {
-    max-width: 50px; /* Adjusted logo size */
-    height: auto;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
     gap: 1rem;
-    margin-left: auto; /* Align navbar to the right */
-}
-
-.nav-links a {
+    background: rgba(34,34,34,0.96);
     color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    padding: 0.75rem clamp(1rem, 4vw, 3rem);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
 }
-
-.nav-links a:hover, .nav-links a.active {
-    color: #FFC300;
+.logo img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
 }
-
-/* Hero Section */
-.hero {
-    height: 50vh; /* Reduced height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: url('./images/moon.jpg') no-repeat center center/cover;
-}
-
-.hero-content {
-    color: white;
-}
-
-.hero-content h1 {
-    font-size: 2.5rem; /* Adjusted font size */
-    margin-bottom: 1rem;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
-.hero-content .button-group a {
-    padding: 0.8rem 1.2rem;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    margin: 0 0.5rem;
-}
-
-.btn-primary {
-    background: #FF5733;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #FFC300;
-}
-
-.btn-secondary {
-    background: #FFC300;
-    color: black;
-}
-
-.btn-secondary:hover {
-    background: #FF5733;
-    color: black;
-}
-
-/* Highlights Section */
-.highlights {
-    padding: 2rem;
-    text-align: center;
-    background: white;
-}
-
-.highlights-grid {
+.nav-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    list-style: none;
+}
+.nav-links a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-links a.active {
+    background: var(--color-accent);
+    color: #111;
+    outline: none;
+}
+
+section { padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem); }
+section > h1, section > h2 { text-align: center; margin-bottom: 1.5rem; }
+h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 1.05; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15; }
+h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+p { max-width: 70ch; }
+
+.hero {
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.58)), url('./images/moon.jpg') center/cover no-repeat;
+    color: white;
+}
+.hero-content { max-width: 760px; padding: 1rem; }
+.hero-content p { margin: 1rem auto 1.8rem; font-size: 1.2rem; }
+.button-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-primary,
+.btn-secondary,
+.contact-form button {
+    display: inline-block;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.85rem 1.25rem;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn-primary { background: var(--color-primary); color: white; }
+.btn-secondary { background: var(--color-accent); color: #111; }
+.btn-primary:hover, .btn-primary:focus-visible { background: var(--color-primary-dark); }
+.btn-secondary:hover, .btn-secondary:focus-visible { background: white; color: #111; }
+
+.highlights, .gallery, .exhibits, .event-details, .calendar-section, .visit-content, .museum-about, .contact, .contact-image { background: white; }
+.highlights-grid, .gallery-grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+.highlight, .exhibit, .event-details article, .visit-details, .contact-form {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.25rem;
+}
+.highlight {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .highlight {
-    width: 300px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.highlight img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-/* Gallery Section */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    padding: 2rem;
-    justify-items: center;
-}
-
-.gallery-grid img {
-    width: 100%;
-    max-width: 120px; /* Reduced max width for smaller frames */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 10px; /* Add spacing between images */
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.1); /* Slightly enlarge the image */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
-/* About Page Styles */
-.museum-about p {
-    font-size: 18px;
-    color: black; /* Set text color to black */
-    margin-bottom: 30px; /* Increased space for better readability */
-}
-
-/* About Page Styles */
-.museum-image {
-    width: 100%;
-    max-width: 500px; /* Reduced size for About page image */
-    border-radius: 10px;
-    margin: 0 auto;
-    display: block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.overlay h1 {
-    font-size: 36px; /* Match Contact page heading size */
-    margin-bottom: 10px;
-}
-
-.overlay p {
-    font-size: 18px; /* Match Contact page font size */
-    color: black; /* Set text color to black */
-    margin-bottom: 20px;
-}
-
-/* Contact Page Styles */
-.contact {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.contact h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.contact p {
-    font-size: 18px;
-    color: #000; /* Updated to the requested color */
-    margin-bottom: 20px;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.contact-form label {
-    font-size: 16px;
-    color: #ddd;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: #000;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.contact-form button {
-    background-color: #ffe600;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
     cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease;
 }
 
-.contact-form button:hover {
-    background-color: #ffd500;
+.highlight:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
 }
-
-.contact-image img {
-    width: 33%;
-    max-width: 220px;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 20px;
-
-    /* Frame Styling */
-    border: 5px solid #333; /* Adjust thickness and color of the frame */
-    padding: 10px; /* Optional padding inside the border */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for added depth */
-}
-
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color:  #ec5938;
-    color: #333;
-    font-size: 18px; /* Match font size with Contact page */
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    flex: 1;
-}
-
-/* Header Styles */
-header {
-    display: flex;
-    justify-content: space-between; /* Ensures space between logo and nav */
-    align-items: center; /* Vertically aligns logo and nav */
-    background-color: #333;
-    padding: 0.5rem 1rem;
-    color: white;
-}
-
-header .logo {
-    display: flex;
-    align-items: center;
-}
-
-header .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 1rem; /* Space between links */
-    margin-left: auto; /* Push navbar to the far right */
-}
-
-header .logo img {
-    max-width: 50px; /* Adjusted logo size */
-    height: auto;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin-left: auto; /* Align navbar to the right */
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    color: #FFC300;
-}
-
-/* Hero Section */
-.hero {
-    height: 50vh; /* Reduced height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: url('./images/moon.jpg') no-repeat center center/cover;
-}
-
-.hero-content {
-    color: white;
-}
-
-.hero-content h1 {
-    font-size: 2.5rem; /* Adjusted font size */
+.highlight img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 14px;
     margin-bottom: 1rem;
 }
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
-.hero-content .button-group a {
-    padding: 0.8rem 1.2rem;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    margin: 0 0.5rem;
-}
-
-.btn-primary {
-    background: #FF5733;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #FFC300;
-}
-
-.btn-secondary {
-    background: #FFC300;
-    color: black;
-}
-
-.btn-secondary:hover {
-    background: #FF5733;
-    color: black;
-}
-
-/* Highlights Section */
-.highlights {
-    padding: 2rem;
-    text-align: center;
-    background: white;
-}
-
-.highlights-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-}
-
-.highlight {
-    width: 300px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.highlight img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-/* Gallery Section */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    padding: 2rem;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
-
 .gallery-grid img {
     width: 100%;
-    max-width: 120px; /* Reduced max width for smaller frames */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 10px; /* Add spacing between images */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
 }
+.gallery-grid img:hover { transform: translateY(-4px); }
 
-.gallery-grid img:hover {
-    transform: scale(1.1); /* Slightly enlarge the image */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
-/* About Page Styles */
-.museum-about p {
-    font-size: 18px;
-    color: black; /* Set text color to black */
-    margin-bottom: 30px; /* Increased space for better readability */
-}
-
-/* About Page Styles */
-.museum-image {
-    width: 100%;
-    max-width: 400px; /* Reduced size for About page image */
-    border-radius: 10px;
-    margin: 0 auto;
-    display: block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.overlay h1 {
-    font-size: 36px; /* Match Contact page heading size */
-    margin-bottom: 10px;
-}
-
-.overlay p {
-    font-size: 18px; /* Match Contact page font size */
-    color: black; /* Set text color to black */
-    margin-bottom: 20px;
-}
-
-/* Contact Page Styles */
-.contact {
+.museum-hero,
+.events-hero,
+.visit-intro {
     text-align: center;
-    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--color-primary), #ff805f);
+    color: white;
+    padding: 2rem 1rem;
 }
 
-.contact h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+.museum-image,
+.event-image {
+    width: min(100%, 620px);
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin: 0 auto 1rem;
+    box-shadow: var(--shadow);
 }
 
-.contact p {
-    font-size: 18px;
-    color: #000; /* Updated to the requested color */
-    margin-bottom: 20px;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    max-width: 500px;
+.overlay, .museum-about, .event-details, .calendar-section, .contact, .contact-image, .visit-content, .exhibits {
+    max-width: var(--max-width);
     margin: 0 auto;
 }
+.overlay p, .visit-intro p, .contact p { margin: 0 auto; }
+.museum-about p + p { margin-top: 1rem; }
 
-.contact-form label {
-    font-size: 16px;
-    color: #ddd;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: #000;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.contact-form button {
-    background-color: #ffe600;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-    background-color: #ffd500;
-}
-
-.contact-image img {
-    width: 33%;
-    max-width: 220px;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-/* Exhibits Page Styles */
 .exhibits {
-    padding: 2rem;
-    text-align: center;
-    background-color: #f9f9f9;
+    display: grid;
+    gap: 1.5rem;
+}
+.exhibit {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+.exhibit-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .exhibit {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    text-align: center;
-    margin-bottom: 2rem;
+    transition: transform 0.2s ease;
 }
 
+.exhibit-link:hover .exhibit {
+    transform: translateY(-5px);
+}
 .exhibit img {
-    width: 30%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 14px;
 }
+.exhibit p, .event-details p, .visit-details p { color: var(--color-muted); }
 
-.exhibit h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #333;
+.event-details {
+    display: grid;
+    gap: 1rem;
 }
-
-.exhibit p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
+.event-details h2 { text-align: left; }
+.calendar {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
-
-/* Visit Page Styles */
-.visit-intro {
+.calendar th, .calendar td {
+    border: 1px solid #ececec;
+    padding: 0.9rem;
     text-align: center;
-    padding: 2rem 1rem;
-    background-color: #ec5938;
 }
-
-.visit-intro h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.visit-intro p {
-    font-size: 1.2rem;
-    color: #000;
+.calendar th { background: var(--color-dark); color: white; }
+.calendar td:not(.event-day) {
+    background: white;
 }
 
 .visit-content {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(280px, 430px) 1fr;
     gap: 2rem;
-    padding: 2rem;
-    align-items: flex-start;
-    justify-content: center;
-    background-color: white;
+    align-items: start;
 }
 
-.visit-image {
-    flex: 1 1 40%;
-    max-width: 500px;
+.calendar caption {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
 }
 
+.event-day {
+    background: var(--color-soft);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+.event-day span {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--color-text);
+}
 .visit-image img {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+.visit-details h2, .visit-details h3 { color: var(--color-primary-dark); }
+.visit-details h3 { margin-top: 1.2rem; }
+.visit-details ul { padding-left: 1.25rem; color: var(--color-muted); }
+
+.contact-form {
+    max-width: 560px;
+    margin: 2rem auto 0;
+    display: grid;
+    gap: 0.75rem;
+    text-align: left;
+}
+.contact-form label { font-weight: 700; color: var(--color-text); }
+.contact-form input, .contact-form textarea {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.85rem 1rem;
+    font: inherit;
+    border: 1px solid #cfcfcf;
+    border-radius: 12px;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: 3px solid rgba(255,196,0,0.6);
+    border-color: var(--color-dark);
+}
+.contact-image { text-align: center; padding-top: 0; }
+.contact-image img {
+    width: min(100%, 360px);
+    margin: 1rem auto 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-.visit-details {
-    flex: 1 1 50%;
-    max-width: 600px;
-}
-
-.visit-details h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #ec5938;
-}
-
-.visit-details h3 {
-    font-size: 1.5rem;
-    margin-top: 1.5rem;
-    color: #333;
-}
-
-.visit-details p, .visit-details ul {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.visit-details ul {
-    padding-left: 1.5rem;
-    list-style: disc;
-}
-
-.visit-details p strong {
-    color: #333;
-}
-/* Event Page Styles */
-.events-hero {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.events-hero h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.events-hero img.event-image {
-    max-width: 30%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.event-details {
-    margin: 2rem;
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.event-details h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.event-details article {
-    margin-bottom: 2rem;
-}
-
-.event-details h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.event-details p {
-    font-size: 1rem;
-    color: #555;
-}
-
-/* Calendar Section */
-.calendar-section {
-    margin: 2rem;
-    text-align: center;
-}
-
-.calendar-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.calendar {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    border-collapse: collapse;
-}
-
-.calendar th, .calendar td {
-    padding: 1rem;
-    text-align: center;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-}
-
-.calendar th {
-    background-color: #333;
+.site-footer {
+    background: var(--color-dark);
     color: white;
+    padding: 1.25rem clamp(1rem, 4vw, 3rem);
 }
-
-.calendar td {
-    background-color: #fff;
-}
-
-.calendar td:hover {
-    background-color: #ffc300;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-    
-/* Footer Styles */
 .footer-content {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 2rem; /* Increased padding for consistent spacing */
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
 }
-
-.footer-content ul {
+.social-links {
     list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 1rem; /* Add spacing between list items */
-    padding: 0; /* Remove default padding */
-    margin: 1rem 0; /* Add vertical spacing */
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+.social-links a { color: white; text-decoration: none; }
+.social-links a:hover, .social-links a:focus-visible { color: var(--color-accent); }
+
+.exhibit-text {
+  max-width: 650px;
 }
 
-.footer-content ul li {
-    margin: 0; /* Ensure consistent margin */
+.exhibit h2 {
+  text-align: left;
+  margin-bottom: 0.5rem;
 }
 
-.footer-content ul a {
-    color: white; /* Consistent link color */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease;
+@media (max-width: 760px) {
+    .site-header { align-items: flex-start; flex-direction: column; }
+    .nav-links { justify-content: flex-start; }
+    .nav-links a { font-size: 0.9rem; padding: 0.45rem 0.65rem; }
+    .hero { min-height: 62vh; }
+    .highlights-grid { grid-template-columns: 1fr; }
+    .exhibit, .visit-content { grid-template-columns: 1fr; }
+    .footer-content { justify-content: center; text-align: center; }
+    .calendar th, .calendar td { padding: 0.55rem 0.35rem; font-size: 0.9rem; }
 }
 
-.footer-content ul a:hover {
-    color: #FFC300; /* Hover effect for links */
-}
-/* Media Queries */
-@media (max-width: 768px) {
-    .hero {
-        height: 30vh;
-    }
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }

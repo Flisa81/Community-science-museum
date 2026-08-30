@@ -1,22 +1,35 @@
-# Community Science Museum – Semester Project 1
+# Community Science Museum
 
-A fictional science museum website designed for kids and families. Built as a multi-page educational site with clear structure, responsive layout, and accessible content.
+A responsive informational website for the Community Science Museum. The site presents museum highlights, exhibition spaces, events, visit information, and contact details for families and young visitors.
 
-## 🔗 Live Site
+## Built With
+
+- HTML
+- CSS
+- Vanilla JavaScript-ready structure
+
+## Improvements Made
+
+- Refactored repeated and duplicated CSS into a cleaner global stylesheet.
+- Improved responsive layout across mobile, tablet, and desktop screens.
+- Added semantic navigation using a `<nav>` element and `aria-current` for the active page.
+- Added a skip link and improved keyboard focus states for accessibility.
+- Reduced the footer height and improved spacing for a more professional layout.
+- Improved image sizing, object-fit handling, and lazy loading.
+
+## Pages
+
+- Home
+- About
+- Exhibits
+- Events
+- Plan Your Visit
+- Contact
+
+## Live Site
+
 [https://flisa81.github.io/Community-science-museum/](https://flisa81.github.io/Community-science-museum/)
 
-## 📁 Features
-- Home, Visit, Exhibitions, Contact pages
-- Semantic HTML with accessible markup
-- Responsive layout (partially optimized)
-- Optimized images with alt text
+## Repository
 
-## 💻 Technologies Used
-- HTML
-- CSS (Vanilla)
-
-## 🖼️ Preview
- ![Museum Screenshot](./images/museum.jpg) 
-
-## 🚀 How to Run Locally
-Clone the repository and open `index.html` in your browser. No server needed.
+[https://github.com/Flisa81/Community-science-museum](https://github.com/Flisa81/Community-science-museum)

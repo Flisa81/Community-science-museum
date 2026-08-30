@@ -8,21 +8,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="./images/logo.jpg" alt="Community Science Museum Logo">
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="exhibits.html">Exhibits</a></li>
-            <li><a href="events.html" class="active">Events</a></li>
-            <li><a href="visit.html">Plan Your Visit</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+        <a class="logo" href="index.html" aria-label="Community Science Museum home">
+            <img src="./images/logo.jpg" alt="Community Science Museum logo">
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="exhibits.html">Exhibits</a></li>
+                <li><a href="events.html" aria-current="page" class="active">Events</a></li>
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="events-hero">
             <h1>Special Events and Exhibitions</h1>
             <img src="./images/mavis.jpg" alt="Museum Hall" class="event-image">
@@ -43,79 +46,86 @@
                 <p>On loan from the NEMO Science Museum in Amsterdam, the Energetica exhibition is coming to the Community Science Museum. It’s a series of installations that allow visitors to experience the power of the elements as we harness them. From solar energy powering lighting, to ‘Wind Island’ that shows how turbines are able to use and control wind to create power.</p>
             </article>
         </section>
+<section class="calendar-section">
+    <h2>Event Calendar</h2>
 
-        <section class="calendar-section">
-            <h2>Event Calendar</h2>
-            <table class="calendar">
-                <thead>
-                    <tr>
-                        <th>Mon</th>
-                        <th>Tue</th>
-                        <th>Wed</th>
-                        <th>Thu</th>
-                        <th>Fri</th>
-                        <th>Sat</th>
-                        <th>Sun</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
-                        <td>13</td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>15</td>
-                        <td>16</td>
-                        <td>17</td>
-                        <td>18</td>
-                        <td>19</td>
-                        <td>20</td>
-                    </tr>
-                    <tr>
-                        <td>21</td>
-                        <td>22</td>
-                        <td>23</td>
-                        <td>24</td>
-                        <td>25</td>
-                        <td>26</td>
-                        <td>27</td>
-                    </tr>
-                    <tr>
-                        <td>28</td>
-                        <td>29</td>
-                        <td>30</td>
-                        <td>31</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    <table class="calendar">
+        <caption>Upcoming museum events in May 2026</caption>
+
+        <thead>
+            <tr>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td class="event-day">3<br><span>Lecture</span></td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td class="event-day">9<br><span>Museum Night</span></td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+            </tr>
+
+            <tr>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td class="event-day">18<br><span>Energetica</span></td>
+                <td>19</td>
+                <td>20</td>
+            </tr>
+
+            <tr>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+            </tr>
+
+            <tr>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="footer-content">
-            <p>&copy; 2024 Community Science Museum. All Rights Reserved.</p>
-            <ul class="social-links">
+            <p>&copy; 2026 Community Science Museum.</p>
+            <ul class="social-links" aria-label="Social media links">
                 <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
                 <li><a href="#">Instagram</a></li>
+                <li><a href="#">YouTube</a></li>
             </ul>
         </div>
     </footer>
